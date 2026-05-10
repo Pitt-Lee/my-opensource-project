@@ -78,15 +78,128 @@ NEXT_PUBLIC_ANALYTICS_ID=your_analytics_id
 
 ## 📖 Usage
 
-<!-- 在这里添加使用说明和示例 -->
+### Project Structure
+
+```
+my-opensource-project/
+├── index.html          # Landing page
+├── src/                # Source code
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Page-level components
+│   ├── styles/         # Global styles
+│   ├── utils/          # Utility functions
+│   └── assets/         # Images, fonts, icons
+├── public/             # Static assets
+├── tests/              # Test files
+├── docs/               # Documentation
+├── .github/            # GitHub templates & workflows
+├── .env.local          # Environment variables (not committed)
+├── .gitignore          # Git ignore rules
+├── .editorconfig       # Editor formatting rules
+├── CONTRIBUTING.md     # How to contribute
+├── CODE_OF_CONDUCT.md  # Community guidelines
+├── SECURITY.md         # Vulnerability reporting
+├── CHANGELOG.md        # Version history
+├── LICENSE             # MIT License
+└── README.md           # This file
+```
+
+### Development
+
+```bash
+# Start development server with hot reload
+npm run dev
+
+# Run linter
+npm run lint
+
+# Run tests
+npm test
+
+# Format code
+npm run format
+```
+
+### Build & Deploy
 
 ```bash
 # Build for production
 npm run build
 
+# Preview production build locally
+npm run preview
+
 # Run production server
 npm start
 ```
+
+### Common Workflows
+
+#### Adding a New Page
+
+1. Create a new file in `src/pages/`
+2. Add the route configuration
+3. Import and use components from `src/components/`
+
+#### Adding a New Component
+
+1. Create a new folder in `src/components/YourComponent/`
+2. Add `index.tsx` (component) and `styles.css` (styles)
+3. Export from the components index
+
+#### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Generate coverage report
+npm run test:coverage
+```
+
+### FAQ
+
+<details>
+<summary><b>How do I change the port?</b></summary>
+
+Set the `PORT` environment variable:
+```bash
+PORT=4000 npm run dev
+```
+</details>
+
+<details>
+<summary><b>How do I add environment variables?</b></summary>
+
+1. Add the variable to `.env.local`
+2. Prefix with `NEXT_PUBLIC_` for client-side access
+3. Restart the dev server
+</details>
+
+<details>
+<summary><b>How do I deploy?</b></summary>
+
+**Vercel (recommended)**:
+```bash
+npm i -g vercel
+vercel
+```
+
+**Netlify**:
+```bash
+npm run build
+# Upload the `dist/` or `build/` folder to Netlify
+```
+
+**Docker**:
+```bash
+docker build -t my-project .
+docker run -p 3000:3000 my-project
+```
+</details>
 
 ## 🗺 Roadmap
 
